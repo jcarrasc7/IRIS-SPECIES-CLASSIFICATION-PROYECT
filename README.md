@@ -1,12 +1,12 @@
 # Iris Species Classification Dashboard
 
-This interactive dashboard was developed in Streamlit. The project was first built in Google Colab, later organized into a GitHub repository, and finally deployed in Streamlit according to the professor’s instructions.
+This interactive dashboard was developed in Streamlit. The project was first built in Google Colab, later organized into a GitHub repository, and finally deployed in Streamlit.
 
 # Description
 This project is part of the Machine Learning Classification activity.  
 The objective is to analyze the Iris dataset, train a classification model, visualize the data, and allow the user to predict the species of an Iris flower based on four measurements.
 
-# Workflow / Methodology
+# Workflow 
 The project followed a simple and clear end-to-end process:
 
 1. Data Understanding:
