@@ -30,8 +30,8 @@ The project followed a simple and clear end-to-end process:
 - Automatic training of a Random Forest model  
 - Performance metrics: Accuracy, Precision, Recall, F1-Score  
 - Visualizations:
-  - 3D scatter plot of the dataset  
-  - Highlighted position of the predicted sample  
+- 3D scatter plot of the dataset  
+- Highlighted position of the predicted sample  
 - Manual prediction panel for sepal/petal measurements  
 
 # Technologies Used
