@@ -61,7 +61,6 @@ with tabs[0]:
 
     st.subheader("Relationships Between Variables")
 
-    
     df_rename = df.rename(columns={
         "SepalLengthCm": "Sepal Length",
         "SepalWidthCm": "Sepal Width",
@@ -76,7 +75,7 @@ with tabs[0]:
         title="",
         height=650
     )
-    
+
     fig_sm.update_layout(
         xaxis_tickangle=45,
         yaxis_tickangle=45,
@@ -115,22 +114,20 @@ with tabs[1]:
     col3.metric("Recall", f"{recall_score(y_test, y_pred, average='macro'):.3f}")
     col4.metric("F1-score", f"{f1_score(y_test, y_pred, average='macro'):.3f}")
 
-    
     st.subheader("Training vs Testing Accuracy")
 
     train_acc = model.score(X_train_scaled, y_train)
     test_acc = accuracy_score(y_test, y_pred)
 
     fig_acc = px.bar(
-    x=["Train Accuracy", "Test Accuracy"],
-    y=[train_acc, test_acc],
-    title="Train vs Test Accuracy",
-    height=400
+        x=["Train Accuracy", "Test Accuracy"],
+        y=[train_acc, test_acc],
+        title="Train vs Test Accuracy",
+        height=400
     )
 
-    fig_acc.update_layout(yaxis=dict(range=[0,1]))
+    fig_acc.update_layout(yaxis=dict(range=[0, 1]))
     st.plotly_chart(fig_acc, use_container_width=True)
-
 
 
 # TAB 3
@@ -175,4 +172,3 @@ with tabs[2]:
 
         st.plotly_chart(fig3d, use_container_width=True)
 
-        st.plotly_chart(fig3d, use_container_width=True)
