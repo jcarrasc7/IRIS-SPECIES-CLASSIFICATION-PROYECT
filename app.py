@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -37,7 +36,7 @@ tabs = st.tabs([
     "Prediction"
 ])
 
-# TAB 1 — Dataset Overview
+#  TAB 1 
 with tabs[0]:
 
     st.subheader("Quick Preview")
@@ -54,24 +53,40 @@ with tabs[0]:
         x="Species",
         color="Species",
         title="",
-        height=350,
+        height=370,
         color_discrete_sequence=px.colors.qualitative.Set3
     )
     fig_bar.update_layout(margin=dict(l=20, r=20, t=20, b=20))
     st.plotly_chart(fig_bar, use_container_width=True)
 
     st.subheader("Relationships Between Variables")
+
+    
+    df_rename = df.rename(columns={
+        "SepalLengthCm": "Sepal Length",
+        "SepalWidthCm": "Sepal Width",
+        "PetalLengthCm": "Petal Length",
+        "PetalWidthCm": "Petal Width"
+    })
+
     fig_sm = px.scatter_matrix(
-        df,
-        dimensions=df.select_dtypes(include=["float", "int"]).columns,
+        df_rename,
+        dimensions=["Sepal Length", "Sepal Width", "Petal Length", "Petal Width"],
         color="Species",
         title="",
-        height=450
+        height=650
     )
+    
+    fig_sm.update_layout(
+        xaxis_tickangle=45,
+        yaxis_tickangle=45,
+        margin=dict(l=40, r=40, t=40, b=40)
+    )
+
     st.plotly_chart(fig_sm, use_container_width=True)
 
 
-# TAB 2 — Model Training
+# TAB 2 
 with tabs[1]:
 
     st.subheader("Model Training")
@@ -100,8 +115,25 @@ with tabs[1]:
     col3.metric("Recall", f"{recall_score(y_test, y_pred, average='macro'):.3f}")
     col4.metric("F1-score", f"{f1_score(y_test, y_pred, average='macro'):.3f}")
 
+    
+    st.subheader("Training vs Testing Accuracy")
 
-# TAB 3 — Prediction
+    train_acc = model.score(X_train_scaled, y_train)
+    test_acc = accuracy_score(y_test, y_pred)
+
+    fig_acc = px.bar(
+    x=["Train Accuracy", "Test Accuracy"],
+    y=[train_acc, test_acc],
+    title="Train vs Test Accuracy",
+    height=400
+    )
+
+    fig_acc.update_layout(yaxis=dict(range=[0,1]))
+    st.plotly_chart(fig_acc, use_container_width=True)
+
+
+
+# TAB 3
 with tabs[2]:
 
     st.subheader("Enter measurements to predict species")
@@ -115,6 +147,7 @@ with tabs[2]:
         s4 = st.number_input("Petal Width", min_value=0.0, max_value=10.0, value=1.5)
 
     if st.button("Predict"):
+
         sample = [[s1, s2, s3, s4]]
         sample_scaled = scaler.transform(sample)
         pred = model.predict(sample_scaled)[0]
@@ -139,5 +172,7 @@ with tabs[2]:
             marker=dict(size=6, color="black", symbol="x"),
             name="New Sample"
         )
+
+        st.plotly_chart(fig3d, use_container_width=True)
 
         st.plotly_chart(fig3d, use_container_width=True)
