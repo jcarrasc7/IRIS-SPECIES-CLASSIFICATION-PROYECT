@@ -39,7 +39,7 @@ tabs = st.tabs([
 #  TAB 1 
 with tabs[0]:
 
-    st.subheader("Quick Preview")
+    st.subheader("Preview")
     st.dataframe(df.head(8), use_container_width=True)
 
     colA, colB, colC = st.columns(3)
