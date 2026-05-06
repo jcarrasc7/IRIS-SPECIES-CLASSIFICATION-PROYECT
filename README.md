@@ -47,8 +47,8 @@ pip install -r requirements.txt
 streamlit run app.py
 
 
-## Team
-Members: Juan Carrascal (10032) - Karl Luckert Heinz (10919) - Karolaith Orozco (10895) - Jhonatan Monterroza (10895)
+## Members
+Members: Juan Carrascal - Karl Luckert Heinz  - Karolaith Orozco  - Jhonatan Monterroza 
 
 ## Links
 GitHub Repository: https://github.com/jcarrasc7/IRIS-SPECIES-CLASSIFICATION-PROYECT.git
