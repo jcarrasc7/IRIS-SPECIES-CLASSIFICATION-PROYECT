@@ -46,10 +46,6 @@ The project followed a simple and clear end-to-end process:
 pip install -r requirements.txt
 streamlit run app.py
 
-
-## Members
-Members: Juan Carrascal - Karl Luckert Heinz  - Karolaith Orozco  - Jhonatan Monterroza 
-
 ## Links
 GitHub Repository: https://github.com/jcarrasc7/IRIS-SPECIES-CLASSIFICATION-PROYECT.git
 Streamlit Dashboard: https://iris-species-classification-proyect-4fxhnnfwaqnvjspnnmvbmk.streamlit.app/
